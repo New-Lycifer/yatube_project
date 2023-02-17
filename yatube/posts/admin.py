@@ -3,6 +3,7 @@ from .models import Post, Group
 
 
 class PostAdmin(admin.ModelAdmin):
+    """Настройка отображения полей в админке."""
     list_display = (
         'pk',
         'text',
