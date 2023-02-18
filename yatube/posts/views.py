@@ -3,7 +3,6 @@ from .models import Post, Group
 
 
 def index(request):
-    """Функция главной страницы."""
     posts = Post.objects.order_by('-pub_date')[:10]
     context = {
         'posts': posts,
@@ -12,7 +11,6 @@ def index(request):
 
 
 def group_posts(request, slug):
-    """Функция страницы записей по группе."""
     group = get_object_or_404(Group, slug=slug)
     posts = Post.objects.filter(group=group).order_by('-pub_date')[:10]
     context = {
